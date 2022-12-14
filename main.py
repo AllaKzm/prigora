@@ -1,16 +1,16 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import pyodbc
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+driver = 'DRIVER={SQL Server}'
+server = 'SERVER=192.168.0.122'
+port = 'PORT=3306'
+db = 'DATABASE=user10'
+user = 'UID=user10'
+pw = 'PWD=90513'
+conn_str = ';'.join([driver, server, port, db, user, pw])
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+conn = pyodbc.connect(conn_str)
+cursor = conn.cursor()
+cursor.execute('select * from emp')
+for row in cursor.fetchall():
+    print (row)
