@@ -16,30 +16,36 @@ class Database:
         for row in cursor.fetchall():
             print(row)
         """
+
+    def get_his(self):
+        cursor = self.conn.execute('select * from History')
+        his = cursor.fetchall()
+        cursor.close()
+        return(his)
     def get_emp(self):
-        self.cursor.execute('select * from Employee')
-        emps = self.cursor.fetchall()
-        self.cursor.close()
+        cursor = self.conn.execute('select * from Employee')
+        emps = cursor.fetchall()
+        cursor.close()
         return(emps)
     def get_clnt(self):
-        self.cursor.execute('select * from Client')
-        clnt = self.cursor.fetchall()
-        self.cursor.close()
+        cursor = self.conn.execute('select * from Client')
+        clnt = cursor.fetchall()
+        cursor.close()
         return(clnt)
     def get_ord(self):
-        self.cursor.execute('select * from orders')
-        ord = self.cursor.fetchall()
-        self.cursor.close()
+        cursor = self.conn.execute('select * from orders')
+        ord = cursor.fetchall()
+        cursor.close()
         return(ord)
     def get_serv(self):
-        self.cursor.execute('select * from Services')
-        serv = self.cursor.fetchall()
-        self.cursor.close()
+        cursor = self.conn.execute('select * from Services')
+        serv = cursor.fetchall()
+        cursor.close()
         return(serv)
     def get_pos(self):
-        self.cursor.execute('select * from Position')
-        pos = self.cursor.fetchall()
-        self.cursor.close()
+        cursor = self.conn.execute('select * from Position')
+        pos = cursor.fetchall()
+        cursor.close()
         return(pos)
 
     def check_login(self):
