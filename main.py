@@ -66,6 +66,17 @@ class Database:
                 log.append(j)
         return log
 
+    def add_ord(self, barcode, Date_create, Time_ordered, close_date, rental_time,
+                       Client_ID, StatusID):
+        cursor = self.conn.cursor()
+        cursor.execute(
+            f"INSERT INTO orders"
+            f"(`barcode`, `Date_create`, `Time_ordered`, `close_date`, `rental_time`, `emp_id`, `Client_ID`, `StatusID`)"
+            f"VALUES ('{barcode}', '{Date_create}', '{Time_ordered}', '{close_date}', '{rental_time}', '{Client_ID}', '{StatusID}')"
+        )
+        cursor.close()
+        self.conn.commit()
+
 
 if __name__ == '__main__':
     D = Database()

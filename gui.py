@@ -207,7 +207,7 @@ class DialogAdd(QDialog):
         self.setWindowTitle("Добавить")
         self.db = Database()
         self.ui.add_btn_2.clicked.connect(self.add)
-'''
+
     def add(self):
         create_date = self.ui.create_date.text()
         order_code = self.ui.order_code.text()
@@ -216,9 +216,9 @@ class DialogAdd(QDialog):
         services = self.ui.services.text()
         order_status = self.ui.order_status.text()
         use_time = self.ui.use_time.text()
-        self.db.insertRequests(order_code, create_date,order_time, client_code,services, order_status,use_time)
+        self.db.add_ord(order_code, create_date,order_time, client_code,services, order_status,use_time)
         self.ui.close()
-'''
+
 class Builder:
     def __init__(self):
         self.app = QApplication(sys.argv)
